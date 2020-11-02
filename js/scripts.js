@@ -1,10 +1,13 @@
 //bussiness logic
-// Describe: TravelLog();
+// Test: It will push new Places into array
+// Expect: new TravelLog().toEqual([new Place]);
 
-// Test: It will create Constructor for TravelLog to save Places as an array
-// Expect: TravelLog().toEqual([]);
 function TravelLog(){
   this.places = [];
+}
+
+TravelLog.prototype.addPlace = function(place) {
+  this.places.push(place);
 }
 
 function Place(location, landmark, timeOfYear, notes){
@@ -13,5 +16,8 @@ function Place(location, landmark, timeOfYear, notes){
   this.timeOfYear = timeOfYear;
   this.notes = notes;
 }
+let travelLog = new TravelLog();
+let place = new Place ("Japan", "Tokyo Tower", "Spring/Autumn", "fun place!");
+travelLog.addPlace(place);
 
 //user interface logic
